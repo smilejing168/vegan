@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="img/Vegan-Logo.png" />
+	<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />		
+	<title>Vegan</title>
+
+	<!-- navbar -->
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+
+	<!-- 輪播 -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+
+	<!-- 全球素名人 -->
+	<link rel='stylesheet' href='https://cdn.plyr.io/3.5.3/plyr.css'>
+
+
+	<!-- 素食介紹 -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+	font-family: 'Roboto', sans-serif, 微軟正黑體;
+}
+
+/* * {
+	margin: 0;
+	padding: 0;
+} */
+/* i {
+	margin-right: 10px;
+} */
+/*----------multi-level-accordian-menu------------*/
+.navbar-logo{
+	padding: 15px;
+	color: black;
+}
+.navbar-mainbg{
+	background-color: #6AD318;
+	padding: 0px;
+}
+#navbarSupportedContent{
+	overflow: hidden;
+	position: relative;
+}
+#navbarSupportedContent ul{
+	padding: 0px;
+	margin: 0px;
+}
+#navbarSupportedContent ul li a i{
+	margin-right: 10px;
+}
+#navbarSupportedContent li {
+	list-style-type: none;
+	float: left;
+}
+#navbarSupportedContent ul li a{
+	color: black;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+#navbarSupportedContent>ul>li.active>a{
+	color: black;
+	background-color: transparent;
+	transition: all 0.7s;
+}
+#navbarSupportedContent a:not(:only-child):after {
+	content: "\f105";
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 14px;
+	font-family: "Font Awesome 5 Free";
+	display: inline-block;
+	padding-right: 3px;
+	vertical-align: middle;
+	font-weight: 900;
+	transition: 0.5s;
+}
+#navbarSupportedContent .active>a:not(:only-child):after {
+	transform: rotate(90deg);
+}
+.hori-selector{
+	display:inline-block;
+	position:absolute;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	background-color: #FCA415;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	margin-top: 10px;
+}
+.hori-selector .right,
+.hori-selector .left{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: #FCA415;
+	bottom: 10px;
+}
+.hori-selector .right{
+	right: -25px;
+}
+.hori-selector .left{
+	left: -25px;
+}
+.hori-selector .right:before,
+.hori-selector .left:before{
+	content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6AD318;
+}
+.hori-selector .right:before{
+	bottom: 0;
+    right: -25px;
+}
+.hori-selector .left:before{
+	bottom: 0;
+    left: -25px;
+}
+
+@media (max-width: 991px){
+	#navbarSupportedContent ul li a{
+		padding: 12px 30px;
+	}
+	.hori-selector{
+		margin-top: 0px;
+		margin-left: 10px;
+		border-radius: 0;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+	}
+	.hori-selector .left,
+	.hori-selector .right{
+		right: 10px;
+	}
+	.hori-selector .left{
+		top: -25px;
+		left: auto;
+	}
+	.hori-selector .right{
+		bottom: -25px;
+	}
+	.hori-selector .left:before{
+		left: -25px;
+		top: -25px;
+	}
+	.hori-selector .right:before{
+		bottom: -25px;
+		left: -25px;
+	}
+}	
+
+/* 輪撥 */
+	.swiper-container {
+		width: 100%;
+		height: 100%;
+	}
+
+	.banner{
+		width: 100%;
+		height: calc(100vh-56px);
+		/* margin: 1px 0 0 0; */
+	}
+
+	.bg_1,.bg_2{
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	}
+
+	.bg_1{
+	background-image: url('img/小孩吃素01-已修復.jpg');
+	}
+
+	.bg_2{
+	background-image: url('img/素食Banner.jpg');
+	}
+
+
+/* section-1全球素名人 */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+
+
+.section-1 {
+	background-color: transparent;
+	
+	/* border-radius: 5px; */
+}
+
+#content {
+padding: 20px;
+/* color: #bdc3c7; */
+/* background-color: #27e700; */
+/* border-radius:10px; */
+}
+
+/* h1{
+  color: #fafafa;
+} */
+
+.video-container{
+  margin:20px auto;
+  max-width:400px;
+  border-radius:10px;
+}
+
+.video-container{
+  border-radius: 10px;
+  overflow: hidden;
+/* -webkit-transform: translateZ(0); */
+/* box-shadow: 0 19px 51px 0 rgba(0,0,0,0.16), 0 14px 19px 0 rgba(0,0,0,0.07); */
+}
+
+
+
+/* 素食介紹 */
+.container {
+  background-color: cornsilk;
+  /* background-image: url(img/素食介紹BC.jpg);
+  background-size:1100px;
+  background-repeat:no-repeat;
+  background-position: right bottom; */
+  
+}
+
+.nav {
+  border-bottom: solid 1px #4f5153;
+}
+a.active {
+  border-bottom: solid 2px #1063a2;
+}
+
+a {
+  color: blue;
+}
+
+
+/* <!-- //健康素知識 --> */
+.card-4{
+	width: 100%;
+	height: 450px;
+	background-color: #BBFF68; 
+	/* background-image: url(img/BC-2.jpg); */
+	margin: 30px 0 30px 0;   
+}
+
+.section-4{ 
+	background-size:cover;
+}
+.carousel-3d-slide {
+	height: auto !important;
+	background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* /素友好 */
+#section-5 {
+		/* height: 20vh;
+		width: 100vw; */
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: box;
+		display: flex;
+		-webkit-box-align: center;
+		-moz-box-align: center;
+		-o-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-moz-box-pack: center;
+		-o-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		/* background: #fff; */
+	
+	}
+	.Marquee {
+		/* background: -webkit-linear-gradient(225deg, #008ed9, #8b00db);
+		background: -moz-linear-gradient(225deg, #008ed9, #8b00db);
+		background: -o-linear-gradient(225deg, #008ed9, #8b00db);
+		background: -ms-linear-gradient(225deg, #008ed9, #8b00db);
+		background: linear-gradient(-135deg, #008ed9, #8b00db); */
+		width: 70vw;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 1em;
+		color: #fff;
+		font-weight: 100;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: box;
+		display: flex;
+		-webkit-box-align: center;
+		-moz-box-align: center;
+		-o-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		overflow: hidden;
+	}
+	.Marquee-content {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: box;
+		display: flex;
+		-webkit-animation: marquee 10s linear infinite running;
+		-moz-animation: marquee 10s linear infinite running;
+		-o-animation: marquee 10s linear infinite running;
+		-ms-animation: marquee 10s linear infinite running;
+		animation: marquee 10s linear infinite running;
+	}
+	.Marquee-content:hover {
+		-webkit-animation-play-state: paused;
+		-moz-animation-play-state: paused;
+		-o-animation-play-state: paused;
+		-ms-animation-play-state: paused;
+		animation-play-state: paused;
+	}
+	.Marquee-tag {
+		width: 200px;
+		margin: 0 0.5em;
+		padding: 0.5em;
+		background: rgba(255,255,255,0.1);
+		display: -webkit-inline-box;
+		display: -moz-inline-box;
+		display: -webkit-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-box;
+		display: inline-flex;
+		-webkit-box-align: center;
+		-moz-box-align: center;
+		-o-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-moz-box-pack: center;
+		-o-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-transition: all 0.2s ease;
+		-moz-transition: all 0.2s ease;
+		-o-transition: all 0.2s ease;
+		-ms-transition: all 0.2s ease;
+		transition: all 0.2s ease;
+	}
+	.Marquee-tag:hover {
+		background: rgba(255,255,255,0.5);
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		transform: scale(1.1);
+		cursor: pointer;
+	}
+	@-moz-keyframes marquee {
+	0% {
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-o-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+		-ms-transform: translate(-50%);
+		transform: translate(-50%);
+	}
+	}
+	@-webkit-keyframes marquee {
+	0% {
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-o-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+		-ms-transform: translate(-50%);
+		transform: translate(-50%);
+	}
+	}
+	@-o-keyframes marquee {
+	0% {
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-o-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+		-ms-transform: translate(-50%);
+		transform: translate(-50%);
+	}
+	}
+	@keyframes marquee {
+	0% {
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-o-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+		-ms-transform: translate(-50%);
+		transform: translate(-50%);
+	}
+	}
+
+
+
+footer{
+		width: 100%;
+		height: 50px;
+		background-color: #6AD318;
+		margin: 20px 0 0 0;
+    }
+
+	</style>
+</head>
+<body>
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-mainbg  ">
+	   <a class="navbar-brand navbar-logo" href="#">素好健康</a>
+	   <img src="img/Vegan-Logo.png" width="45" height="45" class="d-inline-block align-top" alt="">
+	   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	   <i class="fas fa-bars text-white"></i>
+	   </button>
+	   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	   <ul class="navbar-nav ml-auto">
+	   <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+	   <li class="nav-item">
+	   <a class="nav-link" href="#s1" >全球素名人</a>
+	   </li>
+	   <li class="nav-item active">
+	   <a class="nav-link"  href="#" >關於素食</a>
+	   </li>
+	   <li class="nav-item">
+	   <a class="nav-link"  href="#" >素食介紹</a>
+	   </li>
+	   <li class="nav-item">
+	   <a class="nav-link" href="#" >健康素知識</a>
+	   </li>
+	   <li class="nav-item">
+	   <a class="nav-link" href="#" >素友好連結</a>
+	   </li>
+	   <!-- <li class="nav-item">
+	   <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+	   </li> -->
+	   </ul>
+	   </div>
+	</nav>
+
+	<!-- /輪播 -->
+    <div class="banner ">
+        <div class="swiper-container">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide">
+              <div class="bag_1 d-lg-block d-none"></div>
+              <img src="img/小孩吃素01-已修復.jpg" class="d-block w-100 d-lg-non" alt="...">
+            </div>
+            <div class="swiper-slide">
+              <div class="bag_2 d-lg-block d-none"></div>
+              <img src="img/素食Banner.jpg" class="d-block w-100 d-lg-non" alt="...">
+            </div>
+            <!-- <div class="swiper-slide">
+              <div class="bag_3 d-lg-block d-none"></div>
+              <img src="https://www.xpgod.com/uploadfile/2016/1021/20161021042759743.jpg" class="d-block w-100 d-lg-non" alt="...">
+            </div> -->
+          </div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+	<!-- 全球素名人 -->
+	<section id="s1" class="py-3">
+		<div class="container-fluid " id="content">
+		<h1 class="text-center" style="color:darkblue">素名人影片分享</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+		
+		<h4 class=" text-left ">天候無常,冷的時候很冷,熱的時候很熱,氣候變遷您有感受到嗎?聯合國指出,肉食是全球暖化的主因,吃素可以減碳。
+			                    只要一人一天不吃肉,就能減碳7公斤。吃素還有什麼好處,來看看素名人怎麼說。</h4>
+		<div class="video-container">
+		<!-- <video class="img-rounded" controls crossorigin playsinline poster="https://bitdash-a.akamaihd.net/content/sintel/poster.png"></video> -->
+		<iframe width="400" height="350" src="https://www.youtube.com/embed/rsYVtxHtzc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		</div>
+	</section>
+
+	
+	<!-- 素食介紹 -->
+	<section id="section-3">
+        <div class="container mt-5" id="tablist-section">
+            <h1 class="text-center ">素食介紹</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+            <nav class="row mb-3 px-5">
+            <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">素食種類</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">吃素原因</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">全球素人口最多地區</a>
+            </div>
+            </nav>
+            <div class="tab-content row pb-5 pt-3" id="nav-tabContent">
+            <div class="tab-pane fade show active col-12 col-md-10 offset-md-1" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="row">
+            <div class="col-12 col-md-6">
+            <img src="img/常見的素食種類-0615.jpg" class="align-self-center" alt="...">
+            </div>
+            <div class="col-12 col-md-6 align-self-center">
+            <h2>素食種類</h2>
+            <h5>全球各地的吃素傳統不盡相同，常見的吃法大致可分為以下幾大類：
+                1.純素：
+                    又稱全素，不吃五辛也不食用雞蛋、乳製品，甚至葷素
+                    一起使用的鍋子都不使用，純粹以乾淨蔬果、穀類為飲食之
+                     道，此為純素飲食。
+                2.奶素：
+                   不吃蛋及蛋製品，但會食用奶類和其相關產品。
+                3.蛋素：
+                   不吃奶及奶製品，但會食用蛋類和其相關產品。
+                4.蛋奶素：
+                   吃蛋（未經授精蛋不會孵化），也吃奶及奶製品，但不吃五
+                   辛。
+                5.植物五辛素：
+                   不吃蛋，不吃奶及奶製品，但會食用任何植物性含五辛，主
+                   張以非動物性為出發點。
+                6.蛋奶五辛素：
+                   吃蛋（未經授精蛋不會孵化），也吃奶及奶製品，及任何植
+                   物性含五辛等，和其相關產品。主張以非殺害生命為出發
+                   點。
+                7.半素食者：
+                    a.方便素食：
+                       在生活中盡量選擇素食，但如果條件不允，也可以食用肉
+                       類。
+                    b.鍋邊素食
+                       在生活中只食用素食，但這些素食可允許和動物製成的食
+                       品混雜在一起，或是接受使用與葷食共煮過的鍋具及碗
+                       盤。
+			</h5>
+            <p><a href="" title="read more">影片</a> 
+            
+            </p>
+
+            </div>
+            </div>
+            </div>
+            <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="row">
+            <div class="col-12 col-md-6">
+            <img src="https://picsum.photos/445/245?blur" class="align-self-center mr-3" alt="...">
+            </div>
+            <div class="col-12 col-md-6 align-self-center">
+            <h3>Profile</h3>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <p><a href="" title="read more">Read more</a></p>
+            </div>
+            </div>
+            </div>
+            <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="row">
+            <div class="col-12 col-md-6">
+            <img src="https://picsum.photos/445/245?grayscale" class="align-self-center mr-3" alt="...">
+            </div>
+            <div class="col-12 col-md-6 align-self-center">
+            <h3>Contact</h3>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <p><a href="" title="read more">Read more</a></p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+	</section>
+	
+	 <!-- //健康素知識 -->
+	 <div class="card-4">
+		<h1 class="text-center ">健康素知識</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+          <section id="section-4">
+              <div id="carousel">
+                  <carousel-3d :autoplay="true" :autoplay-timeout="2400">
+                  <slide :index="0"><a href="https://www.merit-times.com.tw/NewsPage.aspx?unid=578064"><img src="img/精選健康素知識.jpg" title="精選健康素知識" width="ˇ500" height="280" /></a></slide>
+                  <slide :index="1"><a href="https://www.youtube.com/watch?v=-C0EoXjpWGQ&list=PLGXSnXrHOwfPgZ6dZe670-bCzNQ-Yls-P"><img src="img/影片-吃素的好處.jpg" title="影片-吃素的好處" width="ˇ500" height="280" /></a></slide>
+                  <slide :index="2"><a href="https://www.suiis.com/info/"><img src="img/素健康資訊網.jpg" title="素健康資訊網" width="ˇ500" height="280" /></a></slide>
+                  <slide :index="3"><a href="https://www.youtube.com/watch?v=EaSyxfNHk_E&list=PLGXSnXrHOwfPgZ6dZe670-bCzNQ-Yls-P&index=4"><img src="img/影片-蔬食救地球.jpg" title="影片-蔬食救地球" width="ˇ500" height="280" /></a></slide>
+                  
+                  
+                  </carousel-3d>
+                  </div>
+                  <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+                  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.7/vue.js'></script>
+                  <script src='https://rawgit.com/Wlada/vue-carousel-3d/master/dist/vue-carousel-3d.min.js'></script>
+                  <script id="rendered-js">
+                  //https://github.com/Wlada/vue-carousel-3d
+                  new Vue({
+                    el: '#carousel',
+                    data: {
+                      slides: 7 },
+                  
+                    components: {
+                      'carousel-3d': Carousel3d.Carousel3d,
+                      'slide': Carousel3d.Slide } });
+                  //# sourceURL=pen.js
+                      </script>
+               </section>
+      </div>
+
+	   <!-- //素友好 -->
+	   <h1 class="text-center ">素友好連結</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+	   <section id="section-5" class="section-5" >
+		 <div class="Marquee">
+		 <div class="Marquee-content">
+		 <div class="Marquee-tag">
+		   <a href="https://tour.suiis.com/">
+			 <img  alt="tour.suiis" src="img/素.JPG" >
+		 </div>
+		 <div class="Marquee-tag">
+		   <a href="https://food.suiis.com/">
+			 <img  alt="tour.suiis" src="img/食.jpg">
+		 </div>
+		 <div class="Marquee-tag">
+		   <a href="https://www.vegue.me/index.php?gclid=Cj0KCQjwoPL2BRDxARIsAEMm9y9NHMI6BPjz6amBXHjoU4VEnwF4nHBPgnTj6GedCaCoJbapFrt4xRAaAqPtEALw_wcB">
+			 <img  alt="tour.suiis" src="img/唯素購物.jpg" >
+		 </div>
+		 <div class="Marquee-tag">
+		   <a href="https://www.suudays.com/v2/official?gclid=EAIaIQobChMIw_Cuv47H6gIVTT5gCh0Sdgh7EAAYASAAEgJzW_D_BwE">
+			 <img  alt="tour.suiis" src="img/素食食譜.JPG">
+		 </div>
+		 <div class="Marquee-tag">
+		   <a href="http://www.vegelife.com.tw/vege/list_restr.asp?idRg=&idCity=10&idDistr=144&searchClass=1">
+			 <img  alt="tour.suiis" src="img/素食生活網.JPG" width="120" height="60">
+		 </div>
+		
+		 
+			 </div>
+			 </div>
+			 </div>
+		 </section>
+   
+		 <footer></footer>
+   
+   
+		   <!-- <script>
+			   window.console = window.console || function(t) {};
+		   </script>
+		   <script>
+			   if (document.location.search.match(/type=embed/gi)) {
+			   window.parent.postMessage("resize", "*");
+			   }
+		   </script>
+			-->
+   
+		   <!-- //素友好 -->
+		   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		   <script src='https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js'></script>
+		   <script id="rendered-js">
+		   jQuery(document).ready(function ($) {
+			 $('.slick.marquee').slick({
+			   speed: 5000,
+			   autoplay: true,
+			   autoplaySpeed: 0,
+			   centerMode: true,
+			   cssEase: 'linear',
+			   slidesToShow: 1,
+			   slidesToScroll: 1,
+			   variableWidth: true,
+			   infinite: true,
+			   initialSlide: 1,
+			   arrows: false,
+			   buttons: false });
+   
+		   });
+		   //# sourceURL=pen.js
+			   </script>
+
+	<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+	<script id="rendered-js">
+	// ---------Responsive-navbar-active-animation-----------
+	function test() {
+		var tabsNewAnim = $('#navbarSupportedContent');
+		var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+		var activeItemNewAnim = tabsNewAnim.find('.active');
+		var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+		var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+		var itemPosNewAnimTop = activeItemNewAnim.position();
+		var itemPosNewAnimLeft = activeItemNewAnim.position();
+		$(".hori-selector").css({
+		"top": itemPosNewAnimTop.top + "px",
+		"left": itemPosNewAnimLeft.left + "px",
+		"height": activeWidthNewAnimHeight + "px",
+		"width": activeWidthNewAnimWidth + "px" });
+	
+		$("#navbarSupportedContent").on("click", "li", function (e) {
+		$('#navbarSupportedContent ul li').removeClass("active");
+		$(this).addClass('active');
+		var activeWidthNewAnimHeight = $(this).innerHeight();
+		var activeWidthNewAnimWidth = $(this).innerWidth();
+		var itemPosNewAnimTop = $(this).position();
+		var itemPosNewAnimLeft = $(this).position();
+		$(".hori-selector").css({
+			"top": itemPosNewAnimTop.top + "px",
+			"left": itemPosNewAnimLeft.left + "px",
+			"height": activeWidthNewAnimHeight + "px",
+			"width": activeWidthNewAnimWidth + "px" });
+	
+		});
+	}
+	$(document).ready(function () {
+		setTimeout(function () {test();});
+	});
+	$(window).on('resize', function () {
+		setTimeout(function () {test();}, 500);
+	});
+	$(".navbar-toggler").click(function () {
+		setTimeout(function () {test();});
+	});
+	//# sourceURL=pen.js
+	</script>
+
+	<!-- 輪播 -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
+	<script id="rendered-js">
+	var swiper = new Swiper('.blog-slider', {
+	  spaceBetween: 30,
+	  effect: 'fade',
+	  loop: true,
+	  mousewheel: {
+		invert: false },
+	
+	  // autoHeight: true,
+	  pagination: {
+		el: '.blog-slider__pagination',
+		clickable: true } });
+	//# sourceURL=pen.js
+		</script>
+
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		slidesPerView: 1,
+		spaceBetween: 30,
+		loop: true,
+		centeredSlides: true,
+		autoplay: {
+		delay: 2500,
+		disableOnInteraction: false,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		});
+	</script>
+
+	
+	
+</body>
+</html>
+
