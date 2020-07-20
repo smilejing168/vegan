@@ -17,6 +17,8 @@
 	<!-- 全球素名人 -->
 	<link rel='stylesheet' href='https://cdn.plyr.io/3.5.3/plyr.css'>
 
+	<!-- 關於素食 -->
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,700|Prata"'>
 
 	<!-- 素食介紹 -->
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
@@ -176,7 +178,7 @@ body{
 	.banner{
 		width: 100%;
 		height: calc(100vh-56px);
-		/* margin: 1px 0 0 0; */
+		margin: 55px 0 55px 0;
 	}
 
 	.bg_1,.bg_2{
@@ -196,61 +198,77 @@ body{
 
 
 /* section-1全球素名人 */
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
-
-
-.section-1 {
-	background-color: transparent;
-	
-	/* border-radius: 5px; */
+.hm-gradient {
+    /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
+	margin: 40px 0 40px 0;
+}
+.darken-grey-text {
+    color: #2E2E2E;
+}
+.embed-responsive-16by9::before {
+    /* background-image: url('https://mdbootstrap.com/img/screens/yt/video.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#content {
-padding: 20px;
-/* color: #bdc3c7; */
-/* background-color: #27e700; */
-/* border-radius:10px; */
+/* 關於素食 */
+/*css for pagination*/
+.page {
+  display: none;
 }
-
-/* h1{
-  color: #fafafa;
-} */
-
-.video-container{
-  margin:20px auto;
-  max-width:400px;
-  border-radius:10px;
+.page-active {
+  display: block;
 }
-
-.video-container{
-  border-radius: 10px;
-  overflow: hidden;
-/* -webkit-transform: translateZ(0); */
-/* box-shadow: 0 19px 51px 0 rgba(0,0,0,0.16), 0 14px 19px 0 rgba(0,0,0,0.07); */
+/*end css for pagination*/
+#s2{
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: 100%;
+  background-color: #B0BEC5;
+  padding: 10px;
 }
 
 
+.jumbotron {
+	background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+}
+  /*Example of custom colors for pagination*/
+.page-link {
+    color: #000000;
+    background-color: #80DEEA;
+    border: 1px solid #84FFFF;
+}
+.page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #84FFFF;
+    border-color: #dee2e6;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #00B8D4;
+    border-color: #00ACC1;
+}
+.page-link:hover {
+    color: #0056b3;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+.page-link:focus {
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+.prev .page-link {
+    background-color: #80DEEA;
+}
+.first .page-link {
+    background-color: #80DEEA;
+}
+.next .page-link {
+    background-color: #80DEEA;
+}
+.last .page-link {
+    background-color: #80DEEA;
+}
 
 /* 素食介紹 */
-.container {
-  background-color: cornsilk;
-  /* background-image: url(img/素食介紹BC.jpg);
-  background-size:1100px;
-  background-repeat:no-repeat;
-  background-position: right bottom; */
-  
-}
-
-.nav {
-  border-bottom: solid 1px #4f5153;
-}
-a.active {
-  border-bottom: solid 2px #1063a2;
-}
-
-a {
-  color: blue;
-}
 
 
 /* <!-- //健康素知識 --> */
@@ -458,7 +476,7 @@ footer{
 </head>
 <body>
 	<!-- navbar -->
-	<nav class="navbar navbar-expand-lg navbar-mainbg  ">
+	<nav class="navbar navbar-expand-lg navbar-mainbg fixed-top ">
 	   <a class="navbar-brand navbar-logo" href="#">素好健康</a>
 	   <img src="img/Vegan-Logo.png" width="45" height="45" class="d-inline-block align-top" alt="">
 	   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -471,7 +489,7 @@ footer{
 	   <a class="nav-link" href="#s1" >全球素名人</a>
 	   </li>
 	   <li class="nav-item active">
-	   <a class="nav-link"  href="#" >關於素食</a>
+	   <a class="nav-link"  href="#s2" >關於素食</a>
 	   </li>
 	   <li class="nav-item">
 	   <a class="nav-link"  href="#" >素食介紹</a>
@@ -515,101 +533,148 @@ footer{
     </div>
 
 	<!-- 全球素名人 -->
-	<section id="s1" class="py-3">
-		<div class="container-fluid " id="content">
-		<h1 class="text-center" style="color:darkblue">素名人影片分享</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+	<section id="s1"class="hm-gradient">
+		<main>
 		
-		<h4 class=" text-left ">天候無常,冷的時候很冷,熱的時候很熱,氣候變遷您有感受到嗎?聯合國指出,肉食是全球暖化的主因,吃素可以減碳。
-			                    只要一人一天不吃肉,就能減碳7公斤。吃素還有什麼好處,來看看素名人怎麼說。</h4>
-		<div class="video-container">
-		<!-- <video class="img-rounded" controls crossorigin playsinline poster="https://bitdash-a.akamaihd.net/content/sintel/poster.png"></video> -->
-		<iframe width="400" height="350" src="https://www.youtube.com/embed/rsYVtxHtzc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<div class="container mt-4">
+		<div class="text-center darken-grey-text mb-4">
+		<h1 class="font-bold mt-5 mb-3 ">素名人影片分享</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+		<h4 class="font-bold mt-10 mb-3 text-left ">天候無常,冷的時候很冷,熱的時候很熱,氣候變遷您有感受到嗎?聯合國指出,肉食是全球暖化的主因,吃素可以減碳。只要一人一天不吃肉,就能減碳7公斤。吃素還有什麼好處,來看看素名人怎麼說。</h4>
+		
+		</div>
+		
+		<!-- <div class="row">
+		
+		<div class="col-md-12 mb-4">
+		<div class="card">
+		<div class="card-block p-3">
+		
+		<h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>Responsive video</strong></h3>
+		<div class="embed-responsive embed-responsive-16by9">
+		<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
 		</div>
 		</div>
-	</section>
+		</div>
+		</div>
+		
+		</div> -->
+		
+		
+		<div class="row">
+		
+		<div class="col-md-6 mb-4">
+		<div class="card">
+		<div class="card-block p-3">
+		
+		<h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>🌟全球素食名人 吃素好因緣</strong></h3>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/rsYVtxHtzc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		<div class="col-md-6 mb-4">
+		<div class="card">
+		<div class="card-block p-3">
+		 
+		<h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>🌟103歲: 全球最老純素醫生！</strong></h3>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/44BSo-zwKBY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		</div>
+		
+		<!-- <hr class="my-4">
+		<div class="text-center darken-grey-text mb-4">
+		<h3 class="font-bold mb-3">Here you can find more Video:</h3>
+		<a class="btn btn-danger" href="https://mdbootstrap.com/components/bootstrap-video/" target="_blank">Bootstrap Video</a>
+		</div>
+		</div> -->
+		
+		</main>
+		</section>
 
+		<!-- 關於素食 -->
+		<section id="s2" > 
+			<div class="py-3"></div>
+			<h1 class="text-center  ">關於素食</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
+			<div class="container ">
+			<div class="jumbotron page" id="page1">
+			<div class="container">
+			<h2 class="display-5 "><img src="img/素食理念.png"  width="100" height="100" alt="">素食理念 </h2><br>
+			<h6>素食主義（英語：vegetarianism），又稱蔬食主義，素食，蔬食（英語：plant-based food）等，是一種有關飲食的文化，主張不食用飛禽、走獸、魚蝦等動物的身體，也就是肉類，實踐這種飲食文化的人被稱為素食主義者（vegetarian），只食用五穀、蔬菜和水果等植物及其製品。世界各國或不同文化中的素食主義有所不同，有些素食主義者食用蜂蜜、奶類、起司、蛋類等不殺害動物也能取得的動物產出品。純素食主義者不食用動物相關製品，有些宗教也主張不食用具有強烈刺激性的植物，如五辛，主張素食主義的原因包括環保、健康、動物權利等議題，目前擁有全球最高素食人口比例與素食人口數的地方是印度。
+			</h6><br>
+			<h6>相信對許多人而言，Vegan是個陌生的名詞。或許有人會認為Vegan等同於我們平常所說的素食（Vegetarian），事實上Vegan指的是純素主義，中心理念是「愛護動物」，不單單只限於飲食層面，同時也適用於日常的生活態度。因此純素主義意味著不食用任何動物相關製品、不使用動物毛皮、並反對任何剝削動物權益的行為理念。</h6><br>
+			<h6><a class="btn btn-lg btn-success" href="https://www.youtube.com/embed/bq2frBWfVRk" role="button">影片:什麼是純素主義</a></h6>
+			</div>
+			</div>
+			<div class="jumbotron page" id="page2">
+			<h1 class="display-4">Not Another Jumbotron</h1>
+			<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+			</div>
+			<div class="jumbotron page" id="page3">
+			<h1 class="display-4">Data. Data. Data.</h1>
+			<p>This example is a quick exercise to illustrate how the default responsive navbar works. It's placed within a <code>.container</code> to limit its width and will scroll with the rest of the page's content.</p>
+			<p><a class="btn btn-lg btn-primary" href="../../components/navbar" role="button">View navbar docs &raquo;</a></p>
+			</div>
+			<div class="jumbotron page" id="page4">
+			<h1 style="-webkit-user-select: auto;">Buy Now!</h1>
+			<p class="lead" style="-webkit-user-select: auto;">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+			<p style="-webkit-user-select: auto;"><a class="btn btn-lg btn-success" href="#" role="button" style="-webkit-user-select: auto;">Get started today</a></p>
+			</div>
+		   
+			<nav aria-label="Page navigation example">
+			<ul id="pagination-demo" class="pagination justify-content-center">
+			</ul>
+			</nav>
+			</div>
+		  </section>
+		  
+		  <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+		  <script src='https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js'></script>
+		  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+		  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script> -->
+		  <script id="rendered-js">
+		  $('#pagination-demo').twbsPagination({
+			totalPages:3,
+			startPage: 1,
+			visiblePages: 3,
+			initiateStartPageClick: true,
+			hideOnlyOnePage: false,
+			href: false,
+			pageVariable: '{{page}}',
+			totalPagesVariable: '{{total_pages}}',
+			page: null,
+			first: '首',
+			prev: '回上一頁',
+			next: '下一頁',
+			last: '最後頁',
+			loop: false,
+			beforePageClick: null,
+			onPageClick: function (event, page) {
+			  $('.page-active').removeClass('page-active');
+			  $('#page' + page).addClass('page-active');
+			},
+			paginationClass: 'pagination',
+			nextClass: 'page-item next',
+			prevClass: 'page-item prev',
+			lastClass: 'page-item last',
+			firstClass: 'page-item first',
+			pageClass: 'page-item',
+			activeClass: 'active',
+			disabledClass: 'disabled',
+			anchorClass: 'page-link' });
+		  //# sourceURL=pen.js
+			  </script>
 	
 	<!-- 素食介紹 -->
-	<section id="section-3">
-        <div class="container mt-5" id="tablist-section">
-            <h1 class="text-center ">素食介紹</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
-            <nav class="row mb-3 px-5">
-            <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">素食種類</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">吃素原因</a>
-            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">全球素人口最多地區</a>
-            </div>
-            </nav>
-            <div class="tab-content row pb-5 pt-3" id="nav-tabContent">
-            <div class="tab-pane fade show active col-12 col-md-10 offset-md-1" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div class="row">
-            <div class="col-12 col-md-6">
-            <img src="img/常見的素食種類-0615.jpg" class="align-self-center" alt="...">
-            </div>
-            <div class="col-12 col-md-6 align-self-center">
-            <h2>素食種類</h2>
-            <h5>全球各地的吃素傳統不盡相同，常見的吃法大致可分為以下幾大類：
-                1.純素：
-                    又稱全素，不吃五辛也不食用雞蛋、乳製品，甚至葷素
-                    一起使用的鍋子都不使用，純粹以乾淨蔬果、穀類為飲食之
-                     道，此為純素飲食。
-                2.奶素：
-                   不吃蛋及蛋製品，但會食用奶類和其相關產品。
-                3.蛋素：
-                   不吃奶及奶製品，但會食用蛋類和其相關產品。
-                4.蛋奶素：
-                   吃蛋（未經授精蛋不會孵化），也吃奶及奶製品，但不吃五
-                   辛。
-                5.植物五辛素：
-                   不吃蛋，不吃奶及奶製品，但會食用任何植物性含五辛，主
-                   張以非動物性為出發點。
-                6.蛋奶五辛素：
-                   吃蛋（未經授精蛋不會孵化），也吃奶及奶製品，及任何植
-                   物性含五辛等，和其相關產品。主張以非殺害生命為出發
-                   點。
-                7.半素食者：
-                    a.方便素食：
-                       在生活中盡量選擇素食，但如果條件不允，也可以食用肉
-                       類。
-                    b.鍋邊素食
-                       在生活中只食用素食，但這些素食可允許和動物製成的食
-                       品混雜在一起，或是接受使用與葷食共煮過的鍋具及碗
-                       盤。
-			</h5>
-            <p><a href="" title="read more">影片</a> 
-            
-            </p>
-
-            </div>
-            </div>
-            </div>
-            <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="row">
-            <div class="col-12 col-md-6">
-            <img src="https://picsum.photos/445/245?blur" class="align-self-center mr-3" alt="...">
-            </div>
-            <div class="col-12 col-md-6 align-self-center">
-            <h3>Profile</h3>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-            <p><a href="" title="read more">Read more</a></p>
-            </div>
-            </div>
-            </div>
-            <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            <div class="row">
-            <div class="col-12 col-md-6">
-            <img src="https://picsum.photos/445/245?grayscale" class="align-self-center mr-3" alt="...">
-            </div>
-            <div class="col-12 col-md-6 align-self-center">
-            <h3>Contact</h3>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-            <p><a href="" title="read more">Read more</a></p>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-	</section>
+	
 	
 	 <!-- //健康素知識 -->
 	 <div class="card-4">
