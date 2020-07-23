@@ -1,872 +1,374 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  >
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" type="image/x-icon" href="img/Vegan-Logo.png" />
-	<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />		
-	<title>Vegan</title>
-
-	<!-- navbar -->
-	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
-
-	<!-- 輪播 -->
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
-
-	<!-- 全球素名人 -->
-	<link rel='stylesheet' href='https://cdn.plyr.io/3.5.3/plyr.css'>
-
-	<!-- 關於素食 -->
-	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,700|Prata"'>
-
-	<!-- 素食介紹 -->
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-
-	<style>
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-body{
-	font-family: 'Roboto', sans-serif, 微軟正黑體;
-}
-
-/* * {
-	margin: 0;
-	padding: 0;
-} */
-/* i {
-	margin-right: 10px;
-} */
-/*----------multi-level-accordian-menu------------*/
-.navbar-logo{
-	padding: 15px;
-	color: black;
-}
-.navbar-mainbg{
-	background-color: #6AD318;
-	padding: 0px;
-}
-#navbarSupportedContent{
-	overflow: hidden;
-	position: relative;
-}
-#navbarSupportedContent ul{
-	padding: 0px;
-	margin: 0px;
-}
-#navbarSupportedContent ul li a i{
-	margin-right: 10px;
-}
-#navbarSupportedContent li {
-	list-style-type: none;
-	float: left;
-}
-#navbarSupportedContent ul li a{
-	color: black;
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-    padding: 20px 20px;
-    transition-duration:0.6s;
-	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    position: relative;
-}
-#navbarSupportedContent>ul>li.active>a{
-	color: black;
-	background-color: transparent;
-	transition: all 0.7s;
-}
-#navbarSupportedContent a:not(:only-child):after {
-	content: "\f105";
-	position: absolute;
-	right: 20px;
-	top: 10px;
-	font-size: 14px;
-	font-family: "Font Awesome 5 Free";
-	display: inline-block;
-	padding-right: 3px;
-	vertical-align: middle;
-	font-weight: 900;
-	transition: 0.5s;
-}
-#navbarSupportedContent .active>a:not(:only-child):after {
-	transform: rotate(90deg);
-}
-.hori-selector{
-	display:inline-block;
-	position:absolute;
-	height: 100%;
-	top: 0px;
-	left: 0px;
-	transition-duration:0.6s;
-	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	background-color: #FCA415;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	margin-top: 10px;
-}
-.hori-selector .right,
-.hori-selector .left{
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	background-color: #FCA415;
-	bottom: 10px;
-}
-.hori-selector .right{
-	right: -25px;
-}
-.hori-selector .left{
-	left: -25px;
-}
-.hori-selector .right:before,
-.hori-selector .left:before{
-	content: '';
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #6AD318;
-}
-.hori-selector .right:before{
-	bottom: 0;
-    right: -25px;
-}
-.hori-selector .left:before{
-	bottom: 0;
-    left: -25px;
-}
-
-@media (max-width: 991px){
-	#navbarSupportedContent ul li a{
-		padding: 12px 30px;
-	}
-	.hori-selector{
-		margin-top: 0px;
-		margin-left: 10px;
-		border-radius: 0;
-		border-top-left-radius: 25px;
-		border-bottom-left-radius: 25px;
-	}
-	.hori-selector .left,
-	.hori-selector .right{
-		right: 10px;
-	}
-	.hori-selector .left{
-		top: -25px;
-		left: auto;
-	}
-	.hori-selector .right{
-		bottom: -25px;
-	}
-	.hori-selector .left:before{
-		left: -25px;
-		top: -25px;
-	}
-	.hori-selector .right:before{
-		bottom: -25px;
-		left: -25px;
-	}
-}	
-
-/* 輪撥 */
-	.swiper-container {
-		width: 100%;
-		height: 100%;
-	}
-
-	.banner{
-		width: 100%;
-		height: calc(100vh-56px);
-		margin: 55px 0 55px 0;
-	}
-
-	.bg_1,.bg_2{
-	width: 100%;
-	height: 100%;
-	background-position: center;
-	background-size: cover;
-	}
-
-	.bg_1{
-	background-image: url('img/小孩吃素01-已修復.jpg');
-	}
-
-	.bg_2{
-	background-image: url('img/素食Banner.jpg');
-	}
-
-
-/* section-1全球素名人 */
-.hm-gradient {
-    /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
-	margin: 40px 0 40px 0;
-}
-.darken-grey-text {
-    color: #2E2E2E;
-}
-.embed-responsive-16by9::before {
-    /* background-image: url('https://mdbootstrap.com/img/screens/yt/video.png'); */
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* 關於素食 */
-/*css for pagination*/
-.page {
-  display: none;
-}
-.page-active {
-  display: block;
-}
-/*end css for pagination*/
-#s2{
-  /* font-family: 'Lato', sans-serif; */
-  font-weight: 100%;
-  background-color: #B0BEC5;
-  padding: 10px;
-}
-
-
-.jumbotron {
-	background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
-}
-  /*Example of custom colors for pagination*/
-.page-link {
-    color: #000000;
-    background-color: #80DEEA;
-    border: 1px solid #84FFFF;
-}
-.page-item.disabled .page-link {
-    color: #6c757d;
-    background-color: #84FFFF;
-    border-color: #dee2e6;
-}
-.page-item.active .page-link {
-    color: #fff;
-    background-color: #00B8D4;
-    border-color: #00ACC1;
-}
-.page-link:hover {
-    color: #0056b3;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
-}
-.page-link:focus {
-    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
-}
-.prev .page-link {
-    background-color: #80DEEA;
-}
-.first .page-link {
-    background-color: #80DEEA;
-}
-.next .page-link {
-    background-color: #80DEEA;
-}
-.last .page-link {
-    background-color: #80DEEA;
-}
-
-/* 素食介紹 */
-
-
-/* <!-- //健康素知識 --> */
-.card-4{
-	width: 100%;
-	height: 450px;
-	background-color: #BBFF68; 
-	/* background-image: url(img/BC-2.jpg); */
-	margin: 30px 0 30px 0;   
-}
-
-.section-4{ 
-	background-size:cover;
-}
-.carousel-3d-slide {
-	height: auto !important;
-	background-color: rgba(0, 0, 0, 0.25) !important;
-}
-
-/* /素友好 */
-#section-5 {
-		/* height: 20vh;
-		width: 100vw; */
-		display: -webkit-box;
-		display: -moz-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: box;
-		display: flex;
-		-webkit-box-align: center;
-		-moz-box-align: center;
-		-o-box-align: center;
-		-ms-flex-align: center;
-		-webkit-align-items: center;
-		align-items: center;
-		-webkit-box-pack: center;
-		-moz-box-pack: center;
-		-o-box-pack: center;
-		-ms-flex-pack: center;
-		-webkit-justify-content: center;
-		justify-content: center;
-		/* background: #fff; */
-	
-	}
-	.Marquee {
-		/* background: -webkit-linear-gradient(225deg, #008ed9, #8b00db);
-		background: -moz-linear-gradient(225deg, #008ed9, #8b00db);
-		background: -o-linear-gradient(225deg, #008ed9, #8b00db);
-		background: -ms-linear-gradient(225deg, #008ed9, #8b00db);
-		background: linear-gradient(-135deg, #008ed9, #8b00db); */
-		width: 70vw;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		padding: 1em;
-		color: #fff;
-		font-weight: 100;
-		display: -webkit-box;
-		display: -moz-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: box;
-		display: flex;
-		-webkit-box-align: center;
-		-moz-box-align: center;
-		-o-box-align: center;
-		-ms-flex-align: center;
-		-webkit-align-items: center;
-		align-items: center;
-		overflow: hidden;
-	}
-	.Marquee-content {
-		display: -webkit-box;
-		display: -moz-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: box;
-		display: flex;
-		-webkit-animation: marquee 10s linear infinite running;
-		-moz-animation: marquee 10s linear infinite running;
-		-o-animation: marquee 10s linear infinite running;
-		-ms-animation: marquee 10s linear infinite running;
-		animation: marquee 10s linear infinite running;
-	}
-	.Marquee-content:hover {
-		-webkit-animation-play-state: paused;
-		-moz-animation-play-state: paused;
-		-o-animation-play-state: paused;
-		-ms-animation-play-state: paused;
-		animation-play-state: paused;
-	}
-	.Marquee-tag {
-		width: 200px;
-		margin: 0 0.5em;
-		padding: 0.5em;
-		background: rgba(255,255,255,0.1);
-		display: -webkit-inline-box;
-		display: -moz-inline-box;
-		display: -webkit-inline-flex;
-		display: -ms-inline-flexbox;
-		display: inline-box;
-		display: inline-flex;
-		-webkit-box-align: center;
-		-moz-box-align: center;
-		-o-box-align: center;
-		-ms-flex-align: center;
-		-webkit-align-items: center;
-		align-items: center;
-		-webkit-box-pack: center;
-		-moz-box-pack: center;
-		-o-box-pack: center;
-		-ms-flex-pack: center;
-		-webkit-justify-content: center;
-		justify-content: center;
-		-webkit-transition: all 0.2s ease;
-		-moz-transition: all 0.2s ease;
-		-o-transition: all 0.2s ease;
-		-ms-transition: all 0.2s ease;
-		transition: all 0.2s ease;
-	}
-	.Marquee-tag:hover {
-		background: rgba(255,255,255,0.5);
-		-webkit-transform: scale(1.1);
-		-moz-transform: scale(1.1);
-		-o-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		transform: scale(1.1);
-		cursor: pointer;
-	}
-	@-moz-keyframes marquee {
-	0% {
-		-webkit-transform: translateX(0);
-		-moz-transform: translateX(0);
-		-o-transform: translateX(0);
-		-ms-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translate(-50%);
-		-moz-transform: translate(-50%);
-		-o-transform: translate(-50%);
-		-ms-transform: translate(-50%);
-		transform: translate(-50%);
-	}
-	}
-	@-webkit-keyframes marquee {
-	0% {
-		-webkit-transform: translateX(0);
-		-moz-transform: translateX(0);
-		-o-transform: translateX(0);
-		-ms-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translate(-50%);
-		-moz-transform: translate(-50%);
-		-o-transform: translate(-50%);
-		-ms-transform: translate(-50%);
-		transform: translate(-50%);
-	}
-	}
-	@-o-keyframes marquee {
-	0% {
-		-webkit-transform: translateX(0);
-		-moz-transform: translateX(0);
-		-o-transform: translateX(0);
-		-ms-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translate(-50%);
-		-moz-transform: translate(-50%);
-		-o-transform: translate(-50%);
-		-ms-transform: translate(-50%);
-		transform: translate(-50%);
-	}
-	}
-	@keyframes marquee {
-	0% {
-		-webkit-transform: translateX(0);
-		-moz-transform: translateX(0);
-		-o-transform: translateX(0);
-		-ms-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translate(-50%);
-		-moz-transform: translate(-50%);
-		-o-transform: translate(-50%);
-		-ms-transform: translate(-50%);
-		transform: translate(-50%);
-	}
-	}
-
-
-
-footer{
-		width: 100%;
-		height: 50px;
-		background-color: #6AD318;
-		margin: 20px 0 0 0;
-    }
-
-	</style>
+  <!-- Site made with Mobirise Website Builder v4.12.4, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/vegan-logo-132x132.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>VG</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
 </head>
 <body>
-	<!-- navbar -->
-	<nav class="navbar navbar-expand-lg navbar-mainbg fixed-top ">
-	   <a class="navbar-brand navbar-logo" href="#">素好健康</a>
-	   <img src="img/Vegan-Logo.png" width="45" height="45" class="d-inline-block align-top" alt="">
-	   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	   <i class="fas fa-bars text-white"></i>
-	   </button>
-	   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	   <ul class="navbar-nav ml-auto">
-	   <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-	   <li class="nav-item">
-	   <a class="nav-link" href="#s1" >全球素名人</a>
-	   </li>
-	   <li class="nav-item active">
-	   <a class="nav-link"  href="#s2" >關於素食</a>
-	   </li>
-	   <li class="nav-item">
-	   <a class="nav-link"  href="#" >素食介紹</a>
-	   </li>
-	   <li class="nav-item">
-	   <a class="nav-link" href="#" >健康素知識</a>
-	   </li>
-	   <li class="nav-item">
-	   <a class="nav-link" href="#" >素友好連結</a>
-	   </li>
-	   <!-- <li class="nav-item">
-	   <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-	   </li> -->
-	   </ul>
-	   </div>
-	</nav>
+  <section class="menu cid-s5xcNzoQIn" once="menu" id="menu1-22">
 
-	<!-- /輪播 -->
-    <div class="banner ">
-        <div class="swiper-container">
-          <div class="swiper-wrapper ">
-            <div class="swiper-slide">
-              <div class="bag_1 d-lg-block d-none"></div>
-              <img src="img/小孩吃素01-已修復.jpg" class="d-block w-100 d-lg-non" alt="...">
+    
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="swiper-slide">
-              <div class="bag_2 d-lg-block d-none"></div>
-              <img src="img/素食Banner.jpg" class="d-block w-100 d-lg-non" alt="...">
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html" target="_blank">
+                         <img src="assets/images/vegan-logo-132x132.png" alt="" title="" style="height: 3.8rem;">
+                    </a>
+                </span>
+                
             </div>
-            <!-- <div class="swiper-slide">
-              <div class="bag_3 d-lg-block d-none"></div>
-              <img src="https://www.xpgod.com/uploadfile/2016/1021/20161021042759743.jpg" class="d-block w-100 d-lg-non" alt="...">
-            </div> -->
-          </div>
-          <!-- Add Arrows -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-black display-7" href="index.html#header7-2k"><span class="mbrib-globe-2 mbr-iconfont mbr-iconfont-btn" style="font-size: 30px; color: rgb(230, 148, 16);"></span>
+                        全球素名人 &nbsp;</a>
+                </li><li class="nav-item">
+                    <a class="nav-link link text-black display-7" href="index.html#tabs4-2j"><span class="mbrib-delivery mbr-iconfont mbr-iconfont-btn" style="font-size: 30px; color: rgb(230, 148, 16);"></span>
+                        
+                        關於素食 &nbsp;</a>
+                </li><li class="nav-item"><a class="nav-link link text-black display-7" href="https://mobirise.co"><span class="mbrib-star mbr-iconfont mbr-iconfont-btn" style="font-size: 30px; color: rgb(230, 148, 16);"></span>
+                        
+                        素食介紹 &nbsp;</a></li><li class="nav-item"><a class="nav-link link text-black display-7" href="https://mobirise.co"><span class="mbrib-like mbr-iconfont mbr-iconfont-btn" style="font-size: 30px; color: rgb(230, 148, 16);"></span>
+                        
+                        健康素知識&nbsp;</a></li><li class="nav-item"><a class="nav-link link text-black display-7" href="https://mobirise.co"><span class="mbrib-touch-swipe mbr-iconfont mbr-iconfont-btn" style="font-size: 30px; color: rgb(230, 148, 16);"></span>
+                        
+                        素友好連結</a></li></ul>
+            
+        </div>
+    </nav>
+</section>
+
+<section class="engine"><a href="https://mobirise.info/q">responsive web templates</a></section><section class="carousel slide cid-s5z1qFW6bh" data-interval="false" id="slider2-3i">
+
+    
+    <div class="container content-slider">
+        <div class="content-slider-wrap">
+            <div><div class="mbr-slider slide carousel" data-keyboard="false" data-ride="carousel" data-interval="3000" data-pause="hover"><ol class="carousel-indicators"><li data-app-prevent-settings="" data-target="#slider2-3i" class=" active" data-slide-to="0"></li><li data-app-prevent-settings="" data-target="#slider2-3i" data-slide-to="1"></li><li data-app-prevent-settings="" data-target="#slider2-3i" data-slide-to="2"></li></ol><div class="carousel-inner" role="listbox"><div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/01-1920x1180.jpg);"><div class="container container-slide"><div class="image_wrapper"><img src="assets/images/01-1920x1180.jpg" alt="" title=""><div class="carousel-caption justify-content-center"><div class="col-10 align-center"></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="https://www.youtube.com/watch?v=44N0VMR4sWE"><div class="container container-slide"><div class="image_wrapper"><div class="carousel-caption justify-content-center"><div class="col-10 align-center"></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/banner-1920x1180.jpg);"><div class="container container-slide"><div class="image_wrapper"><img src="assets/images/banner-1920x1180.jpg" alt="" title=""><div class="carousel-caption justify-content-center"><div class="col-10 align-center"></div></div></div></div></div></div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider2-3i"><span aria-hidden="true" class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a><a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider2-3i"><span aria-hidden="true" class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a></div></div> 
         </div>
     </div>
+</section>
 
-	<!-- 全球素名人 -->
-	<section id="s1"class="hm-gradient">
-		<main>
-		
-		<div class="container mt-4">
-		<div class="text-center darken-grey-text mb-4">
-		<h1 class="font-bold mt-5 mb-3 ">素名人影片分享</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
-		<h4 class="font-bold mt-10 mb-3 text-left ">天候無常,冷的時候很冷,熱的時候很熱,氣候變遷您有感受到嗎?聯合國指出,肉食是全球暖化的主因,吃素可以減碳。只要一人一天不吃肉,就能減碳7公斤。吃素還有什麼好處,來看看素名人怎麼說。</h4>
-		
-		</div>
-		
-		<!-- <div class="row">
-		
-		<div class="col-md-12 mb-4">
-		<div class="card">
-		<div class="card-block p-3">
-		
-		<h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>Responsive video</strong></h3>
-		<div class="embed-responsive embed-responsive-16by9">
-		<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-		</div>
-		</div>
-		</div>
-		</div>
-		
-		</div> -->
-		
-		
-		<div class="row">
-		
-		<div class="col-md-6 mb-4">
-		<div class="card">
-		<div class="card-block p-3">
-		
-		<h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>🌟全球素食名人 吃素好因緣</strong></h3>
-		<div class="embed-responsive embed-responsive-16by9">
-			<iframe width="853" height="480" src="https://www.youtube.com/embed/rsYVtxHtzc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-		</div>
-		</div>
-		</div>
-		
-		
-		<div class="col-md-6 mb-4">
-		<div class="card">
-		<div class="card-block p-3">
-		 
-		<h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>🌟103歲: 全球最老純素醫生！</strong></h3>
-		<div class="embed-responsive embed-responsive-16by9">
-			<iframe width="853" height="480" src="https://www.youtube.com/embed/44BSo-zwKBY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-		</div>
-		</div>
-		</div>
-		
-		</div>
-		
-		<!-- <hr class="my-4">
-		<div class="text-center darken-grey-text mb-4">
-		<h3 class="font-bold mb-3">Here you can find more Video:</h3>
-		<a class="btn btn-danger" href="https://mdbootstrap.com/components/bootstrap-video/" target="_blank">Bootstrap Video</a>
-		</div>
-		</div> -->
-		
-		</main>
-		</section>
+<section class="header7 cid-s5xqbLl4P1" id="header7-2k">
 
-		<!-- 關於素食 -->
-		<section id="s2" > 
-			<div class="py-3"></div>
-			<h1 class="text-center  ">關於素食</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
-			<div class="container ">
-			<div class="jumbotron page" id="page1">
-			<div class="container">
-			<h2 class="display-5 "><img src="img/素食理念.png"  width="100" height="100" alt="">素食理念 </h2><br>
-			<h6>素食主義（英語：vegetarianism），又稱蔬食主義，素食，蔬食（英語：plant-based food）等，是一種有關飲食的文化，主張不食用飛禽、走獸、魚蝦等動物的身體，也就是肉類，實踐這種飲食文化的人被稱為素食主義者（vegetarian），只食用五穀、蔬菜和水果等植物及其製品。世界各國或不同文化中的素食主義有所不同，有些素食主義者食用蜂蜜、奶類、起司、蛋類等不殺害動物也能取得的動物產出品。純素食主義者不食用動物相關製品，有些宗教也主張不食用具有強烈刺激性的植物，如五辛，主張素食主義的原因包括環保、健康、動物權利等議題，目前擁有全球最高素食人口比例與素食人口數的地方是印度。
-			</h6><br>
-			<h6>相信對許多人而言，Vegan是個陌生的名詞。或許有人會認為Vegan等同於我們平常所說的素食（Vegetarian），事實上Vegan指的是純素主義，中心理念是「愛護動物」，不單單只限於飲食層面，同時也適用於日常的生活態度。因此純素主義意味著不食用任何動物相關製品、不使用動物毛皮、並反對任何剝削動物權益的行為理念。</h6><br>
-			<h6><a class="btn btn-lg btn-success" href="https://www.youtube.com/embed/bq2frBWfVRk" role="button">影片:什麼是純素主義</a></h6>
-			</div>
-			</div>
-			<div class="jumbotron page" id="page2">
-			<h1 class="display-4">Not Another Jumbotron</h1>
-			<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-			<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-			</div>
-			<div class="jumbotron page" id="page3">
-			<h1 class="display-4">Data. Data. Data.</h1>
-			<p>This example is a quick exercise to illustrate how the default responsive navbar works. It's placed within a <code>.container</code> to limit its width and will scroll with the rest of the page's content.</p>
-			<p><a class="btn btn-lg btn-primary" href="../../components/navbar" role="button">View navbar docs &raquo;</a></p>
-			</div>
-			<div class="jumbotron page" id="page4">
-			<h1 style="-webkit-user-select: auto;">Buy Now!</h1>
-			<p class="lead" style="-webkit-user-select: auto;">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-			<p style="-webkit-user-select: auto;"><a class="btn btn-lg btn-success" href="#" role="button" style="-webkit-user-select: auto;">Get started today</a></p>
-			</div>
-		   
-			<nav aria-label="Page navigation example">
-			<ul id="pagination-demo" class="pagination justify-content-center">
-			</ul>
-			</nav>
-			</div>
-		  </section>
-		  
-		  <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
-		  <script src='https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js'></script>
-		  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
-		  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script> -->
-		  <script id="rendered-js">
-		  $('#pagination-demo').twbsPagination({
-			totalPages:3,
-			startPage: 1,
-			visiblePages: 3,
-			initiateStartPageClick: true,
-			hideOnlyOnePage: false,
-			href: false,
-			pageVariable: '{{page}}',
-			totalPagesVariable: '{{total_pages}}',
-			page: null,
-			first: '首',
-			prev: '回上一頁',
-			next: '下一頁',
-			last: '最後頁',
-			loop: false,
-			beforePageClick: null,
-			onPageClick: function (event, page) {
-			  $('.page-active').removeClass('page-active');
-			  $('#page' + page).addClass('page-active');
-			},
-			paginationClass: 'pagination',
-			nextClass: 'page-item next',
-			prevClass: 'page-item prev',
-			lastClass: 'page-item last',
-			firstClass: 'page-item first',
-			pageClass: 'page-item',
-			activeClass: 'active',
-			disabledClass: 'disabled',
-			anchorClass: 'page-link' });
-		  //# sourceURL=pen.js
-			  </script>
-	
-	<!-- 素食介紹 -->
-	
-	
-	 <!-- //健康素知識 -->
-	 <div class="card-4">
-		<h1 class="text-center ">健康素知識</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
-          <section id="section-4">
-              <div id="carousel">
-                  <carousel-3d :autoplay="true" :autoplay-timeout="2400">
-                  <slide :index="0"><a href="https://www.merit-times.com.tw/NewsPage.aspx?unid=578064"><img src="img/精選健康素知識.jpg" title="精選健康素知識" width="ˇ500" height="280" /></a></slide>
-                  <slide :index="1"><a href="https://www.youtube.com/watch?v=-C0EoXjpWGQ&list=PLGXSnXrHOwfPgZ6dZe670-bCzNQ-Yls-P"><img src="img/影片-吃素的好處.jpg" title="影片-吃素的好處" width="ˇ500" height="280" /></a></slide>
-                  <slide :index="2"><a href="https://www.suiis.com/info/"><img src="img/素健康資訊網.jpg" title="素健康資訊網" width="ˇ500" height="280" /></a></slide>
-                  <slide :index="3"><a href="https://www.youtube.com/watch?v=EaSyxfNHk_E&list=PLGXSnXrHOwfPgZ6dZe670-bCzNQ-Yls-P&index=4"><img src="img/影片-蔬食救地球.jpg" title="影片-蔬食救地球" width="ˇ500" height="280" /></a></slide>
-                  
-                  
-                  </carousel-3d>
-                  </div>
-                  <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
-                  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.7/vue.js'></script>
-                  <script src='https://rawgit.com/Wlada/vue-carousel-3d/master/dist/vue-carousel-3d.min.js'></script>
-                  <script id="rendered-js">
-                  //https://github.com/Wlada/vue-carousel-3d
-                  new Vue({
-                    el: '#carousel',
-                    data: {
-                      slides: 7 },
-                  
-                    components: {
-                      'carousel-3d': Carousel3d.Carousel3d,
-                      'slide': Carousel3d.Slide } });
-                  //# sourceURL=pen.js
-                      </script>
-               </section>
-      </div>
+    
 
-	   <!-- //素友好 -->
-	   <h1 class="text-center ">素友好連結</h1><hr style="height:5px;border-width:3;width:15%;background-color:black ">
-	   <section id="section-5" class="section-5" >
-		 <div class="Marquee">
-		 <div class="Marquee-content">
-		 <div class="Marquee-tag">
-		   <a href="https://tour.suiis.com/">
-			 <img  alt="tour.suiis" src="img/素.JPG" >
-		 </div>
-		 <div class="Marquee-tag">
-		   <a href="https://food.suiis.com/">
-			 <img  alt="tour.suiis" src="img/食.jpg">
-		 </div>
-		 <div class="Marquee-tag">
-		   <a href="https://www.vegue.me/index.php?gclid=Cj0KCQjwoPL2BRDxARIsAEMm9y9NHMI6BPjz6amBXHjoU4VEnwF4nHBPgnTj6GedCaCoJbapFrt4xRAaAqPtEALw_wcB">
-			 <img  alt="tour.suiis" src="img/唯素購物.jpg" >
-		 </div>
-		 <div class="Marquee-tag">
-		   <a href="https://www.suudays.com/v2/official?gclid=EAIaIQobChMIw_Cuv47H6gIVTT5gCh0Sdgh7EAAYASAAEgJzW_D_BwE">
-			 <img  alt="tour.suiis" src="img/素食食譜.JPG">
-		 </div>
-		 <div class="Marquee-tag">
-		   <a href="http://www.vegelife.com.tw/vege/list_restr.asp?idRg=&idCity=10&idDistr=144&searchClass=1">
-			 <img  alt="tour.suiis" src="img/素食生活網.JPG" width="120" height="60">
-		 </div>
-		
-		 
-			 </div>
-			 </div>
-			 </div>
-		 </section>
-   
-		 <footer></footer>
-   
-   
-		   <!-- <script>
-			   window.console = window.console || function(t) {};
-		   </script>
-		   <script>
-			   if (document.location.search.match(/type=embed/gi)) {
-			   window.parent.postMessage("resize", "*");
-			   }
-		   </script>
-			-->
-   
-		   <!-- //素友好 -->
-		   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-		   <script src='https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js'></script>
-		   <script id="rendered-js">
-		   jQuery(document).ready(function ($) {
-			 $('.slick.marquee').slick({
-			   speed: 5000,
-			   autoplay: true,
-			   autoplaySpeed: 0,
-			   centerMode: true,
-			   cssEase: 'linear',
-			   slidesToShow: 1,
-			   slidesToScroll: 1,
-			   variableWidth: true,
-			   infinite: true,
-			   initialSlide: 1,
-			   arrows: false,
-			   buttons: false });
-   
-		   });
-		   //# sourceURL=pen.js
-			   </script>
+    
 
-	<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
-	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-	<script id="rendered-js">
-	// ---------Responsive-navbar-active-animation-----------
-	function test() {
-		var tabsNewAnim = $('#navbarSupportedContent');
-		var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
-		var activeItemNewAnim = tabsNewAnim.find('.active');
-		var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-		var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-		var itemPosNewAnimTop = activeItemNewAnim.position();
-		var itemPosNewAnimLeft = activeItemNewAnim.position();
-		$(".hori-selector").css({
-		"top": itemPosNewAnimTop.top + "px",
-		"left": itemPosNewAnimLeft.left + "px",
-		"height": activeWidthNewAnimHeight + "px",
-		"width": activeWidthNewAnimWidth + "px" });
-	
-		$("#navbarSupportedContent").on("click", "li", function (e) {
-		$('#navbarSupportedContent ul li').removeClass("active");
-		$(this).addClass('active');
-		var activeWidthNewAnimHeight = $(this).innerHeight();
-		var activeWidthNewAnimWidth = $(this).innerWidth();
-		var itemPosNewAnimTop = $(this).position();
-		var itemPosNewAnimLeft = $(this).position();
-		$(".hori-selector").css({
-			"top": itemPosNewAnimTop.top + "px",
-			"left": itemPosNewAnimLeft.left + "px",
-			"height": activeWidthNewAnimHeight + "px",
-			"width": activeWidthNewAnimWidth + "px" });
-	
-		});
-	}
-	$(document).ready(function () {
-		setTimeout(function () {test();});
-	});
-	$(window).on('resize', function () {
-		setTimeout(function () {test();}, 500);
-	});
-	$(".navbar-toggler").click(function () {
-		setTimeout(function () {test();});
-	});
-	//# sourceURL=pen.js
-	</script>
+    <div class="container">
+        <div class="media-container-row">
 
-	<!-- 輪播 -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
-	<script id="rendered-js">
-	var swiper = new Swiper('.blog-slider', {
-	  spaceBetween: 30,
-	  effect: 'fade',
-	  loop: true,
-	  mousewheel: {
-		invert: false },
-	
-	  // autoHeight: true,
-	  pagination: {
-		el: '.blog-slider__pagination',
-		clickable: true } });
-	//# sourceURL=pen.js
-		</script>
+            <div class="media-content align-right">
+                <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-2"><strong>★素名人影片分享★</strong><br><strong>吃素好因緣</strong></h1>
+                <div class="mbr-section-text mbr-white pb-3">
+                    <p class="mbr-text mbr-fonts-style display-5">
+                        天候無常,冷的時候很冷,熱的時候很熱,氣候變遷您有感受到嗎?聯合國指出,肉食是全球暖化的主因,吃素可以減碳。只要一人一天不吃肉,就能減碳7公斤。吃素還有什麼好處,來看看素名人怎麼說。
+                    </p>
+                </div>
+                
+            </div>
 
-	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-	<script>
-		var swiper = new Swiper('.swiper-container', {
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		slidesPerView: 1,
-		spaceBetween: 30,
-		loop: true,
-		centeredSlides: true,
-		autoplay: {
-		delay: 2500,
-		disableOnInteraction: false,
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		});
-	</script>
+            <div class="mbr-figure" style="width: 130%;"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/rsYVtxHtzc8?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
 
-	
-	
+        </div>
+    </div>
+</section>
+
+<section class="tabs4 cid-s5xpRWCQgX mbr-parallax-background" id="tabs4-2j">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);">
+    </div>
+
+    <div class="container">
+        <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2"><strong>★關於素食★</strong></h2>
+        
+
+        <div class="media-container-row mt-5 pt-3">
+            <div class="mbr-figure" style="width: 33%;">
+                <img src="assets/images/-400x400.png" alt="Mobirise" title="">
+            </div>
+            <div class="tabs-container">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-4" role="tab" data-toggle="tab" href="#tabs4-2j_tab0" aria-selected="true">素食理念</a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-4" role="tab" data-toggle="tab" href="#tabs4-2j_tab1" aria-selected="true">
+                            素食替代品</a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-4" role="tab" data-toggle="tab" href="#tabs4-2j_tab2" aria-selected="true">素飲食指南</a></li>
+                    
+                    
+                    
+                </ul>
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane in active" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text py-5 mbr-fonts-style display-7">素食主義（英語：vegetarianism），又稱蔬食主義，素食，蔬食（英語：plant-based food）等，是一種有關飲食的文化，主張不食用飛禽、走獸、魚蝦等動物的身體，也就是肉類，實踐這種飲食文化的人被稱為素食主義者（vegetarian），只食用五穀、蔬菜和水果等植物及其製品。世界各國或不同文化中的素食主義有所不同，有些素食主義者食用蜂蜜、奶類、起司、蛋類等不殺害動物也能取得的動物產出品。純素食主義者不食用動物相關製品，有些宗教也主張不食用具有強烈刺激性的植物，如五辛，主張素食主義的原因包括環保、健康、動物權利等議題，目前擁有全球最高素食人口比例與素食人口數的地方是印度。 <br><br>相信對許多人而言，Vegan是個陌生的名詞。或許有人會認為Vegan等同於我們平常所說的素食（Vegetarian），事實上Vegan指的是純素主義，中心理念是「愛護動物」，不單單只限於飲食層面，同時也適用於日常的生活態度。因此純素主義意味著不食用任何動物相關製品、不使用動物毛皮、並反對任何剝削動物權益的行為理念。
+<br><a href="https://www.youtube.com/watch?v=bq2frBWfVRk&t=246s" target="_blank" class="text-primary"><strong><em>影片：五分鐘告訴你什麼是純素主義</em></strong></a><br></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text py-5 mbr-fonts-style display-7">很多素食主義者選擇素食生活，是為了擁有更加健康的生活，當然也有很多人是因為信仰原因。大多數的人認為，吃素會缺法營養不健康，其實不然，素食替代品主要以：大豆、蔬菜、水果為主，以下介紹幾種素食食材，讓你的素食生活更加營養健康：&nbsp;<br><strong>1.蔬菜類：</strong>
+含有豐富的礦物質、多種維生素以及粗纖維質，是最重要的素食食材。
+<br><strong>2.水果類：</strong>
+含有大量纖維質，並有豐富的礦物質與維生素，充滿豐富的水分，其中又以維生素C的含量最<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;受矚目。
+<br><strong>3.五穀雜糧、堅果類：</strong>含有豐富的澱粉、蛋白質與礦物質，維生素式提供人體熱量與糖分的主要來源。
+<br><strong>4.蛋、豆、麵粉製品：</strong>蛋、豆、與麵粉類製品，含有豐富的蛋白質，能補充大腦所需的能量，也能提供修<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 護人體組織所需的營養。&nbsp;<br><strong>5.奶類及奶製品：</strong>奶類及奶製品，含有豐沛的礦物質，其中最豐富的營養素就是鈣質。奶類也是豐富蛋白<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;質的來源。
+<br><strong>6.油脂類：
+</strong>油脂類主要提供人體能量的來源，將脂肪轉換成熱量，供應人體每天活量所需的基礎能量。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如：葵花籽油、玉米油、花生油、橄欖油、葡萄籽油、芝麻油、沙拉醬(油脂製品)。<br><a href="https://www.youtube.com/watch?v=8FqdGBYbibQ&t=152s" target="_blank"><strong><em>影片：最全的素食替代品指南 ▏論一個純素者的自我修養&nbsp;</em></strong></a><br></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab3" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text py-5 mbr-fonts-style display-2"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab4" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text py-5 mbr-fonts-style display-7">
+                                    Sites made with Mobirise are 100% mobile-friendly according the latest Google Test and Google loves those websites (officially)!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab5" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text py-5 mbr-fonts-style display-7">
+                                    Mobirise themes are based on Bootstrap 3 and Bootstrap 4 - most powerful mobile first framework. Now, even if you're not code-savvy, you can be a part of an exciting growing bootstrap community.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab6" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text py-5 mbr-fonts-style display-7">
+                                    Choose from the large selection of latest pre-made blocks - full-screen intro, bootstrap carousel, content slider, responsive image gallery with lightbox, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features18 popup-btn-cards cid-s5xqswsabO" id="features18-2l">
+
+    
+
+    
+    <div class="container">
+        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2"><strong>★素食介紹★</strong></h2>
+        
+        <div class="media-container-row pt-5 ">
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper ">
+                    <div class="card-img">
+                        <div class="mbr-overlay"></div>
+                        <div class="mbr-section-btn text-center"><a href="https://mobirise.co" class="btn btn-success display-4">觀看更多</a></div>
+                        <img src="assets/images/-615-390x260.jpg" alt="Mobirise" title="">
+                    </div>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-5"><strong>
+                            素食種類
+                        </strong></h4>
+                        <p class="mbr-text mbr-fonts-style align-left display-7">
+                            素食種類繁多,介紹幾個最常見的,以及影片,讓大家了解,素食是什麼。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <div class="mbr-overlay"></div>
+                        <div class="mbr-section-btn text-center"><a href="https://mobirise.co" class="btn btn-success display-4">觀看更多</a></div>
+                        <img src="assets/images/-390x260.jpg" alt="Mobirise" title="">
+                    </div>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-5"><strong>
+                            吃素原因
+                        </strong></h4>
+                        <p class="mbr-text mbr-fonts-style display-7">
+                           聽到吃素,大多認為是宗教因素,其實吃素可分為:宗教和非宗教2種原因。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <div class="mbr-overlay"></div>
+                        <div class="mbr-section-btn text-center"><a href="https://mobirise.co" class="btn btn-success display-4">觀看更多</a></div>
+                        <img src="assets/images/-390x2609.jpg" alt="Mobirise" title="">
+                    </div>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            全球素人口最多地區
+                        </h4>
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            素食已逐漸成為趨勢潮流,歐洲亦是如此,讓我們來看最多的素人口在哪?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+
+<section class="clients cid-s5xsZBqVuZ" data-interval="false" id="clients-2s">
+      
+
+    
+        <div class="container mb-5">
+            <div class="media-container-row">
+                <div class="col-12 align-center">
+                    <h2 class="mbr-section-title pb-3 mbr-fonts-style display-2"><strong>★素友好連結★</strong></h2>
+                    <h3 class="mbr-section-subtitle mbr-light mbr-fonts-style display-5"><strong>素食已逐漸成為一種趨勢，介紹幾的吃素、旅遊、素購物網好地方，給大家參考！</strong></h3>
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+        <div class="carousel slide" role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner" data-visible="5">
+                
+                
+                
+                
+                
+            <div class="carousel-item ">
+                    <div class="media-container-row">
+                        <div class="col-md-12">
+                            <div class="wrap-img ">
+                                <a href="https://tour.suiis.com/" target="_blank"><img src="assets/images/-120x53.jpg" class="img-responsive clients-img" alt="" title=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="carousel-item ">
+                    <div class="media-container-row">
+                        <div class="col-md-12">
+                            <div class="wrap-img ">
+                                <a href="https://www.suudays.com/" target="_blank"><img src="assets/images/-177x82.jpg" class="img-responsive clients-img" alt="" title=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="carousel-item ">
+                    <div class="media-container-row">
+                        <div class="col-md-12">
+                            <div class="wrap-img ">
+                                <a href="https://it-it.facebook.com/%E7%B4%A0%E5%9C%A8%E5%BF%85%E8%A1%8C%E7%B4%A0%E9%A3%9F%E5%81%A5%E5%BA%B7%E7%94%9F%E6%B4%BB-106075322880307/app/503845266301603/?ref=page_internal" target="_blank"><img src="assets/images/-100x95.jpg" class="img-responsive clients-img" alt="" title=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="carousel-item ">
+                    <div class="media-container-row">
+                        <div class="col-md-12">
+                            <div class="wrap-img ">
+                                <a href="https://www.vegue.me/index.php?gclid=EAIaIQobChMI_bSsi-Dj6gIVyVBgCh3SvAoEEAAYASAAEgLFC_D_BwE" target="_blank"><img src="assets/images/-129x57.jpg" class="img-responsive clients-img" alt="" title=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="carousel-item ">
+                    <div class="media-container-row">
+                        <div class="col-md-12">
+                            <div class="wrap-img ">
+                                <a href="https://food.suiis.com/" target="_blank"><img src="assets/images/-150x57.jpg" class="img-responsive clients-img" alt="" title=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="carousel-controls">
+                <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev">
+                    <span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next">
+                    <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section once="footers" class="cid-s5xt1Wi3eY" id="footer6-2t">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            <div class="col-12">
+                <p class="mbr-text mb-0 mbr-fonts-style display-7"><strong>
+                    © Copyright 2020 -by LIN</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+  <script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/mbr-tabs/mbr-tabs.js"></script>
+  <script src="assets/parallax/jarallax.min.js"></script>
+  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>
+  <script src="assets/mbr-clients-slider/mbr-clients-slider.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/slidervideo/script.js"></script>
+  
+  
 </body>
 </html>
-
